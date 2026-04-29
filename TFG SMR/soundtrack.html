@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Metadatos y configuraciones de la página -->
+  <meta charset="UTF-8">
+  <meta name="description" content="Sitio web de Albaricuca Records, música y novedades.">
+  <meta name="author" content="Álvaro Gracia">
+  <meta name="keywords" content="música, tienda, pop, rock, r&b, Albaricuca Records">
+  <title>☆Albaricuca Records☆</title>
+  <link rel="icon" type="image/png" href="images/icono.png?v=2">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- Contenido de la página -->
+  <header class="site-header">
+    <img src="images/logo_icon.png" alt="MizuCuca Records" width="160" height="auto" class="site-logo site-logo--left">
+  </header>
+  <!-- Menú de navegación -->
+  <nav>
+  <div style="display: flex; align-items: center; gap: 2em;">
+  <a href="index.html">↯INICIO↯ </a>
+    <div style="position: relative; display: flex; align-items: center; gap: 0.5em;">
+      <button>Características ▼</button>
+      <div id="submenu-caracteristicas">
+        <a href="pop.html">Pop</a>
+        <a href="rock.html">Rock</a>
+        <a href="R&B.html">R&B</a>
+        <a href="hip_hop.html">Hip Hop</a>
+        <a href="Jazz.html">Jazz</a>
+        <a href="soundtrack.html">Soundtracks</a>
+      </div>
+      <a href="auth.html" class="nav-account">Cuenta</a>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.3em; margin-left: -2em;">
+  <div style="position:relative;display:inline-block;">
+    <a href="carrito.html" class="cesta" id="cestaLink">Cesta <span id="contador-cesta" style="background:#e17ecc;color:#fff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.8em;font-weight:bold;margin-left:4px;">0</span></a>
+  <div id="cestaMsg" style="display:none; position:absolute; left:-340px; top:2.2em; background:#35363681; color:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15); min-width: 180px; z-index:100; flex-direction: column; padding:10px 18px; font-family:Arial,sans-serif; font-size:1em; white-space:nowrap;">¡Ve a la cesta para ver tus productos!</div>
+  </div>
+  <img src="images/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.webp" alt="Cesta" class="cesta-icon">
+  </div>
+</nav>
+<script>
+  // Mostrar/ocultar submenú de Características
+  const btn = document.querySelector('nav button');
+  const submenu = document.getElementById('submenu-caracteristicas');
+  let submenuTimeout;
+  btn.addEventListener('mouseenter', () => {
+    clearTimeout(submenuTimeout);
+    submenu.style.display = 'flex';
+  });
+  btn.addEventListener('mouseleave', () => {
+  submenuTimeout = setTimeout(() => submenu.style.display = 'none', 50);
+  });
+  submenu.addEventListener('mouseenter', () => {
+    clearTimeout(submenuTimeout);
+    submenu.style.display = 'flex';
+  });
+  submenu.addEventListener('mouseleave', () => {
+    submenuTimeout = setTimeout(() => submenu.style.display = 'none', 800);
+  });
+
+  // 'Próximamente' demo removed; submenu handlers preserved above
+
+  // Mostrar mensaje debajo de Cesta al pasar el cursor
+  const cestaLink = document.getElementById('cestaLink');
+  const cestaMsg = document.getElementById('cestaMsg');
+  cestaLink.addEventListener('mouseenter', () => {
+    cestaMsg.style.display = 'block';
+  });
+  cestaLink.addEventListener('mouseleave', () => {
+    cestaMsg.style.display = 'none';
+  });
+</script>
+  <div>
+  <!-- Logo para controlar el volumen arriba a la derecha -->
+  </div>
+  <div class="volumen-control">
+  <img src="images/25695.png" id="volumenLogo" alt="Volumen">
+  <input type="range" id="volumenSlider" min="0" max="1" step="0.01" value="0.5">
+  <div id="audioMsg" style="display:none; color:#fff; font-weight:bold; margin-top:10px; font-family:Georgia,serif; font-size:1.1em; letter-spacing:1px; text-shadow:1px 1px 2px #e389e3; background:linear-gradient(135deg,#d988e9 70%,#ffffff 100%); border:2px solid #e17ecc; border-radius:14px; box-shadow:0 4px 16px rgba(52,89,183,0.18); padding:12px 22px; max-width:340px; margin-left:auto; margin-right:auto;">Haz clic en cualquier parte para activar la música</div>
+  </div>
+  <audio id="miAudio" src="music/soundtrack.mp4" loop></audio>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var audio = document.getElementById('miAudio');
+      var volumenSlider = document.getElementById('volumenSlider');
+      var audioMsg = document.getElementById('audioMsg');
+      audio.volume = parseFloat(volumenSlider.value);
+      audio.play().catch(function(){
+        audioMsg.style.display = 'block';
+        document.body.addEventListener('click', function activarAudio(){
+          audio.play();
+          audioMsg.style.display = 'none';
+          document.body.removeEventListener('click', activarAudio);
+        });
+      });
+      // Cambiar volumen con el slider
+      volumenSlider.addEventListener('input', function() {
+        audio.volume = parseFloat(this.value);
+      });
+      // Silenciar/desilenciar al hacer clic en el logo
+      var volumenLogo = document.getElementById('volumenLogo');
+      var muted = false;
+      volumenLogo.addEventListener('click', function() {
+        muted = !muted;
+        audio.muted = muted;
+        volumenLogo.style.opacity = muted ? '0.5' : '1';
+      });
+    });
+  </script>
+
+  <h2 class="destacados-titulo">🎬 SOUNDTRACKS DESTACADOS 🎬</h2>
+
+  <div class="destacados">
+    <!-- Soundtrack 1 -->
+    <div class="album" data-id="101" data-nombre="The Crown" data-precio="24.99" data-artista="Hans Zimmer">
+      <img src="images/Pesadilla-removebg-preview.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">Pesadilla antes de Navidad</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">44.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 2 -->
+    <div class="album" data-id="102" data-nombre="Inception" data-precio="22.99" data-artista="Hans Zimmer">
+      <img src="images/2-Wicked-For-Good-The-Soundtrack-vinilo-pop-up.png.webp" alt="Portada del soundtrack">
+      <h3 class="album-nombre">Wicked For Good</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">59.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 3 -->
+    <div class="album" data-id="103" data-nombre="Interstellar" data-precio="26.99" data-artista="Hans Zimmer">
+      <img src="images/Hannah-Montana-Vinilo.png.webp" alt="Portada del soundtrack">
+      <h3 class="album-nombre">Hannah Montana</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">24.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 4 -->
+    <div class="album" data-id="104" data-nombre="Avatar" data-precio="29.99" data-artista="James Horner">
+      <img src="images/MammaMia.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">Mamma Mia! La Película</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">29.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 5 -->
+    <div class="album" data-id="105" data-nombre="Dune" data-precio="28.99" data-artista="Hans Zimmer">
+      <img src="images/initialD.jpg" alt="Portada del soundtrack">
+      <h3 class="album-nombre">CD Inicial-D Edición Especial Japón</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">29.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 6 -->
+    <div class="album" data-id="106" data-nombre="The Lion King" data-precio="19.99" data-artista="Elton John">
+      <img src="images/PERSONA-5-removebg-preview.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">persona 5 edición limitada</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">59.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 7 -->
+    <div class="album" data-id="107" data-nombre="Titanic" data-precio="21.99" data-artista="James Horner">
+      <img src="images/tiburon.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">tiburón</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">29.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 8 -->
+    <div class="album" data-id="108" data-nombre="Gladiator" data-precio="25.99" data-artista="Hans Zimmer">
+      <img src="images/kpop-demon-hunters-bso-PictureDisc.png.webp" alt="Portada del soundtrack">
+      <h3 class="album-nombre">kpop demon hunters</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">35.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 9 -->
+    <div class="album" data-id="109" data-nombre="Stranger Things" data-precio="23.99" data-artista="Kyle Dixon & Michael Stein">
+      <img src="images/Berserk.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">berserk cd edicion Japón</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">49.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 10 -->
+    <div class="album" data-id="110" data-nombre="Oppenheimer" data-precio="27.99" data-artista="Ludwig Göransson">
+      <img src="images/Evangelion-Finally.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">evangelion</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">24.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 11 -->
+    <div class="album" data-id="111" data-nombre="Top Gun Maverick" data-precio="20.99" data-artista="Lady Gaga & Hans Zimmer">
+      <img src="images/Peliculas-Ghibli.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">colección Peliculas Ghibli </h3>
+      <p>B.S.O</p>
+      <p class="album-precio">29.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Soundtrack 12 -->
+    <div class="album" data-id="112" data-nombre="Barbie" data-precio="18.99" data-artista="Various Artists">
+      <img src="images/Heated-Rivalry-Original.png" alt="Portada del soundtrack">
+      <h3 class="album-nombre">Heated Rivalry</h3>
+      <p>B.S.O</p>
+      <p class="album-precio">49.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <strong><small>MizuCuca Records. Todos los derechos reservados.</small></strong> </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

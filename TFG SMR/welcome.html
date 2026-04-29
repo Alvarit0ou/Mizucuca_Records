@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bienvenid@ - MizuCuca Records</title>
+  <link rel="icon" type="image/png" href="images/icono.png?v=2">
+  <!-- Tipografías: Playfair Display para título, Poppins para cuerpo -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Centrar el panel de bienvenida */
+    .welcome-main{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      /* subir un poco el panel reduciendo la altura disponible */
+      min-height:52vh;
+      padding:40px 20px;
+    }
+    .welcome-card{
+      width:100%;
+      /* tamaño mayor */
+      max-width:960px;
+      background: var(--card-bg, #fff);
+      border-radius:14px;
+      position: relative;
+      /* sombra base + halo rosa más pronunciado */
+      box-shadow:
+        0 14px 50px rgba(0,0,0,0.12),
+        0 0 80px 20px rgba(255,145,180,0.16);
+      /* permitir que el halo se vea fuera de la tarjeta */
+      overflow: visible;
+      /* pequeño ajuste para levantar visualmente la tarjeta */
+      transform: translateY(-18px);
+      transition: transform .28s ease, box-shadow .25s ease;
+      border: 1px solid rgba(255,145,180,0.12);
+    }
+    /* glow extra via pseudo-element para mayor difusión */
+    .welcome-card::before{
+      content: '';
+      position: absolute;
+      inset: -18px;
+      border-radius: 18px;
+      pointer-events: none;
+      box-shadow: 0 0 120px 32px rgba(255,145,180,0.12);
+      z-index: -1;
+    }
+    .welcome-inner{ padding:48px; text-align:center; }
+  </style>
+</head>
+<body class="welcome-page">
+  <header class="site-header">
+    <img src="images/logo web.jpeg" alt="MizuCuca Records" class="site-logo" width="320" height="180">
+  </header>
+  <main class="welcome-main">
+    <section class="welcome-card">
+      <div class="welcome-inner">
+        <h1 id="welcome-title">Bienvenid@</h1>
+        <p id="welcome-text" class="lead">Has iniciado sesión correctamente.</p>
+        <div class="welcome-actions">
+          <a href="index.html" class="btn btn-primary">Ir a la tienda</a>
+          <button id="logout" class="btn btn-ghost">Cerrar sesión</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const email = localStorage.getItem('ar_current');
+    const users = JSON.parse(localStorage.getItem('ar_users')||'[]');
+    const user = users.find(u=>u.email===email) || null;
+    const title = document.getElementById('welcome-title');
+    const text = document.getElementById('welcome-text');
+    if(user){
+      title.textContent = user.name ? `Bienvenid@, ${user.name}` : `Bienvenid@`;
+      text.textContent = user.name ? `Encantados de verte de nuevo, ${user.name}!` : `Has iniciado sesión con ${user.email}`;
+    }
+    document.getElementById('logout').addEventListener('click', ()=>{
+      localStorage.removeItem('ar_current');
+      window.location.href='index.html'; 
+    });
+  </script>
+</body>
+</html>

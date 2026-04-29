@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Metadatos y configuraciones de la página -->
+  <meta charset="UTF-8">
+  <meta name="description" content="Sitio web de Albaricuca Records, música y novedades.">
+  <meta name="author" content="Álvaro Gracia">
+  <meta name="keywords" content="música, tienda, pop, rock, r&b, Albaricuca Records">
+  <title>☆MizuCuca Records☆</title>
+  <!-- Favicon: apunta al PNG existente; añadimos ?v=2 para forzar recarga del navegador -->
+  <link rel="icon" type="image/png" href="images/logo_icon.png">
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>  
+  <!-- Contenido de la página -->
+  <header>
+  <img src="images/logo web.jpeg" alt="MizuCuca Records" width="900" height="400" class="site-logo">
+  </header>
+  <!-- Menú de navegación -->
+  <nav>
+  <div style="display: flex; align-items: center; gap: 2em;">
+  <a href="index.html">INICIO </a>
+    <div style="position: relative; display: flex; align-items: center; gap: 0.5em;">
+      <button>Características ▼</button>
+      <div id="submenu-caracteristicas">
+        <a href="pop.html">Pop</a>
+        <a href="rock.html">Rock</a>
+        <a href="R&B.html">R&B</a>
+        <a href="hip_hop.html">Hip Hop</a>
+        <a href="Jazz.html">Jazz</a>
+        <a href="soundtrack.html">Soundtracks</a>
+      </div>
+      <!-- Enlace al portal de cuenta -->
+      <a href="auth.html" class="nav-account">Cuenta</a>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.3em; margin-left: -2em;">
+  <div style="position:relative;display:inline-block;">
+    <a href="carrito.html" class="cesta" id="cestaLink">Cesta <span id="contador-cesta" style="background:#e17ecc;color:#fff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.8em;font-weight:bold;margin-left:4px;">0</span></a>
+  <div id="cestaMsg" style="display:none; position:absolute; left:-340px; top:2.2em; background:#35363681; color:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15); min-width: 180px; z-index:100; flex-direction: column; padding:10px 18px; font-family:Arial,sans-serif; font-size:1em; white-space:nowrap;">¡Ve a la cesta para ver tus productos!</div>
+  </div>
+  <img src="images/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.webp" alt="Cesta" class="cesta-icon">
+  </div>
+</nav>
+  <div>
+  <!-- Logo para controlar el volumen arriba a la derecha -->
+  </div>
+  <div class="volumen-control">
+  <img src="images/25695.png" id="volumenLogo" alt="Volumen">
+  <input type="range" id="volumenSlider" min="0" max="1" step="0.01" value="0.5">
+  <div id="audioMsg" style="display:none; color:#fff; font-weight:bold; margin-top:10px; font-family:Georgia,serif; font-size:1.1em; letter-spacing:1px; text-shadow:1px 1px 2px #e389e3; background:linear-gradient(135deg,#d988e9 70%,#ffffff 100%); border:2px solid #e17ecc; border-radius:14px; box-shadow:0 4px 16px rgba(52,89,183,0.18); padding:12px 22px; max-width:340px; margin-left:auto; margin-right:auto;">Haz clic en cualquier parte para activar la música</div>
+  </div>
+  <audio id="miAudio" src="music/ssvid.app--Billie-Eilish-my-boy-Official-Instrumental-with-Backing-Vocals.mp3" loop></audio>
+
+  <h2 class="destacados-titulo">🎵 ARTÍCULOS DESTACADOS 🎵</h2>
+
+  <div class="destacados">
+    <!-- Álbum 1 -->
+    <div class="album" data-id="1" data-nombre="SOUR" data-precio="15.99" data-artista="Olivia Rodrigo">
+  <img src="images/61vCHwWrv9L._UF1000_1000_QL80_-removebg-preview.png" alt="Portada del álbum">
+  <h3 class="album-nombre">SOUR</h3>
+      <p>Olivia Rodrigo</p>
+      <p class="album-precio">19.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Álbum 2 -->
+    <div class="album" data-id="2" data-nombre="SHORT N' SWEET" data-precio="16.99" data-artista="Sabrina Carpenter">
+  <img src="images/sbi.png" alt="Portada del álbum">
+  <h3 class="album-nombre">SHORT N' SWEET</h3>
+      <p>Sabrina Carpenter</p>
+      <p class="album-precio">29.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+
+    <!-- Álbum 3 -->
+    <div class="album" data-id="3" data-nombre="SPANISH LEATHER" data-precio="14.99" data-artista="Guitarricadelafuente">
+  <img src="images/image-removebg-preview.png" alt="Portada del álbum">
+  <h3 class="album-nombre">SPANISH LEATHER</h3>
+      <p>Guitarricadelafuente</p>
+      <p class="album-precio">24.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+     <!-- Álbum 4 -->
+    <div class="album" data-id="4" data-nombre="AVIDA DOLLARS" data-precio="17.99" data-artista="C.Tangana">
+  <img src="images/Captura_de_pantalla_2025-10-01_a_las_13.19.11-removebg-preview.png" alt="Portada del álbum">
+  <h3 class="album-nombre">AVIDA DOLLARS</h3>
+      <p>C.tangana</p>
+      <p class="album-precio">19.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+     <!-- Álbum 5 -->
+    <div class="album" data-id="5" data-nombre="KOR FOR LAKE" data-precio="13.99" data-artista="Rojuu">
+  <img src="images/1507-1-removebg-preview.png" alt="Portada del álbum">
+  <h3 class="album-nombre">KOR FOR LAKE</h3>
+      <p>Rojuu</p>
+      <p class="album-precio">24.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+     <!-- Álbum 6 -->
+    <div class="album" data-id="6" data-nombre="MADRE FUNDADORA" data-precio="15.99" data-artista="Metrika">
+  <img src="images/b05839_537a7e27a09e4685b452dd0715022c22_mv2.jpg-removebg-preview.png" alt="Portada del álbum">
+  <h3 class="album-nombre">MADRE FUNDADORA</h3>
+      <p>Metrika</p>
+      <p class="album-precio">15.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+     <!-- Álbum 7 -->
+    <div class="album" data-id="7" data-nombre="Happier than ever" data-precio="18.99" data-artista="Billie Eilish">
+  <img src="images/Captura_de_pantalla_2025-10-01_a_las_13.42.32-removebg-preview.png" alt="Portada del álbum">
+  <h3 class="album-nombre">Happier than ever</h3>
+      <p>Billie Eilish</p>
+      <p class="album-precio">34.99€</p>
+      <button class="btn-carrito" onclick="CartModule.agregarAlCarrito(this)">Añadir a cesta</button>
+    </div>
+     <!-- Álbum 8 -->
+    <div class="album" data-id="8" data-nombre="Tour live setlist" data-precio="0" data-artista="Olivia Rodrigo">
+  <img src="images/Captura_de_pantalla_2025-10-01_a_las_13.44.39-removebg-preview.png" alt="Portada del álbum">
+   <div class="agotado">AGOTADO</div>
+      <h3 class="album-nombre">Tour live setlist</h3>
+      <p>Olivia Rodrigo</p>
+      <p class="album-precio">N/A</p>
+      <button class="btn-carrito" disabled>No disponible</button>
+    </div>
+  </div>
+  <!-- Video informativo proximo concierto-->
+  <!-- Video informativo proximo concierto-->
+  <div class="video-contenedor">
+    <h2 class="video-titulo">🎤 novedades musicales de la semana 🎤</h2>
+    <div class="video-wrapper">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-TXmIaacFAI?si=fQBnc29QnnmCGCW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+    <p style="text-align:center; margin-top:0.5em; color:#e17ecc;">Si no puedes ver el vídeo aquí, ábrelo en YouTube: <a id="youtubeLink" href="https://www.youtube.com/watch?v=-TXmIaacFAI" target="_blank" rel="noopener">Abrir vídeo en YouTube</a></p>
+  </div>
+  <!-- ubicacion de la tienda-->
+  <div class="ubicacion">
+    <h2 class="ubicacion-titulo">📍 Ubicación de la tienda 📍</h2>
+    <div class="ubicacion-content">
+      <div class="mapa-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1686117.5597704314!2d-6.095539972105239!3d40.448130500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422f2e9c2f14c5%3A0xeaa9c3e02a1c85f1!2sUniversal%20Music%20Spain!5e1!3m2!1ses!2ses!4v1759513281125!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="ubicacion-img">
+  <img src="images/Foto TIenda.png" alt="local" width="350" height="500">
+      </div>
+    </div>
+<ul>
+<li>Envio en 24h</li>
+<li>Atención al cliente de L a S de 9:00 a 21;00</li>
+<li>Si no encuentras lo que quieres escribenos por nuestras redes</li>
+</ul>
+<p>
+  <a href="mailto:mizucucarecords@gmail.com?subject=Consulta%20desde%20la%20web&body=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20productos.%0A%0AMuchas%20gracias." title="Enviar correo a Albaricuca Records">Contacta con nosotros</a>
+</p>
+  <footer>
+    <p>&copy; <strong><small>MizuCuca Records. Todos los derechos reservados.</small></strong> </p>
+  </footer>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+  
+  <!-- Configuración de Firebase -->
+  <script src="firebase-config.js"></script>
+  
+  <!-- App principal -->
+  <script src="app.js"></script>
+</body>
+</html>

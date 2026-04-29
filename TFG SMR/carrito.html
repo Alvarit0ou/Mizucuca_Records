@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito - MizuCuca Records</title>
+  <link rel="icon" type="image/png" href="images/logo_icon.png">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    .carrito-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .carrito-titulo {
+      color: #e17ecc;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .carrito-vacio {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+    .carrito-vacio a {
+      color: #e17ecc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .carrito-tabla {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .carrito-tabla th {
+      background: linear-gradient(90deg, #d988e9, #e17ecc);
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .carrito-tabla td {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .carrito-tabla tr:last-child td {
+      border-bottom: none;
+    }
+    .cantidad-control {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .cantidad-control button {
+      background: #e17ecc;
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cantidad-control button:hover {
+      background: #d36bb8;
+    }
+    .btn-eliminar {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    .btn-eliminar:hover {
+      background: #ff5252;
+    }
+    .carrito-resumen {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-bottom: 30px;
+    }
+    .carrito-resumen-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+    .carrito-total {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #e17ecc;
+      border-top: 2px solid #e17ecc;
+      padding-top: 12px;
+    }
+    .carrito-acciones {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+      margin-top: 30px;
+    }
+    .btn-volver {
+      background: #888;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-volver:hover {
+      background: #666;
+    }
+    .btn-pago {
+      background: linear-gradient(90deg, #d988e9, #e17ecc);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    .btn-pago:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(225, 126, 204, 0.4);
+    }
+    .btn-pago:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-btn">← Volver</a>
+  <header class="site-header">
+    <img src="images/logo web.jpeg" alt="MizuCuca Records" class="site-logo site-logo--left" width="160" height="auto">
+  </header>
+
+  <div class="carrito-container">
+    <h1 class="carrito-titulo">🛒 Mi Carrito</h1>
+    <div id="carrito-contenido"></div>
+  </div>
+
+  <footer style="margin-top: 50px; text-align: center; padding: 20px; color: #e17ecc;">
+    <p>&copy; MizuCuca Records. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+  
+  <!-- Configuración de Firebase -->
+  <script src="firebase-config.js"></script>
+  
+  <!-- App principal -->
+  <script src="app.js"></script>
+</body>
+</html>

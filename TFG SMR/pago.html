@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pago - MizuCuca Records</title>
+  <link rel="icon" type="image/png" href="images/logo_icon.png">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    .pago-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    @media (max-width: 900px) {
+      .pago-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pago-titulo {
+      color: #e17ecc;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 30px;
+      grid-column: 1 / -1;
+    }
+    .pago-form {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 8px;
+    }
+    .pago-form h2 {
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e17ecc;
+      padding-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 6px;
+      font-size: 0.95em;
+    }
+    .form-group input,
+    .form-group select {
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1em;
+      background: white;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #e17ecc;
+      box-shadow: 0 0 0 3px rgba(225, 126, 204, 0.1);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .pago-resumen {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 8px;
+      height: fit-content;
+    }
+    .pago-resumen h2 {
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e17ecc;
+      padding-bottom: 10px;
+    }
+    .resumen-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.95em;
+      color: #555;
+    }
+    .resumen-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #e17ecc;
+      border-top: 2px solid #e17ecc;
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+    .pago-acciones {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .btn-cancelar {
+      background: #888;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      flex: 1;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-cancelar:hover {
+      background: #666;
+    }
+    .btn-pago-completar {
+      background: linear-gradient(90deg, #d988e9, #e17ecc);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.1em;
+      flex: 1;
+    }
+    .btn-pago-completar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(225, 126, 204, 0.4);
+    }
+    .btn-pago-completar:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .resumen-item-titulo {
+      font-weight: 600;
+      color: #333;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #e17ecc;
+      padding-bottom: 8px;
+    }
+    .resumen-producto {
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <a href="carrito.html" class="back-btn">← Volver al carrito</a>
+  <header class="site-header">
+    <img src="images/logo web.jpeg" alt="MizuCuca Records" class="site-logo site-logo--left" width="160" height="auto">
+  </header>
+
+  <div class="pago-container">
+    <h1 class="pago-titulo">💳 Completar Pago</h1>
+
+    <form id="pago-form" class="pago-form">
+      <h2>Datos de envío</h2>
+      
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" name="direccion" placeholder="Calle, número" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" required>
+        </div>
+        <div class="form-group">
+          <label for="codigo-postal">Código postal</label>
+          <input type="text" id="codigo-postal" name="codigo-postal" required>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 30px;">Datos de pago</h2>
+
+      <div class="form-group">
+        <label for="titular">Titular de la tarjeta</label>
+        <input type="text" id="titular" name="titular" required>
+      </div>
+
+      <div class="form-group">
+        <label for="numero-tarjeta">Número de tarjeta</label>
+        <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="vencimiento">Vencimiento (MM/YY)</label>
+          <input type="text" id="vencimiento" name="vencimiento" placeholder="12/25" maxlength="5" required>
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+        </div>
+      </div>
+    </form>
+
+    <div class="pago-resumen">
+      <h2>Resumen del pedido</h2>
+      <div id="resumen-productos"></div>
+      <div class="resumen-item">
+        <span>Subtotal:</span>
+        <span id="subtotal">0€</span>
+      </div>
+      <div class="resumen-item">
+        <span>Envío:</span>
+        <span>Gratis</span>
+      </div>
+      <div class="resumen-total">
+        <span>TOTAL:</span>
+        <span id="total">0€</span>
+      </div>
+
+      <div class="pago-acciones">
+        <a href="carrito.html" class="btn-cancelar">Cancelar</a>
+        <button type="submit" form="pago-form" class="btn-pago-completar">Pagar ahora</button>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top: 50px; text-align: center; padding: 20px; color: #e17ecc;">
+    <p>&copy; MizuCuca Records. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+  
+  <!-- Configuración de Firebase -->
+  <script src="firebase-config.js"></script>
+  
+  <!-- App principal -->
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Metadatos y configuraciones de la página -->
+  <meta charset="UTF-8">
+  <meta name="description" content="Sitio web de Albaricuca Records, música y novedades.">
+  <meta name="author" content="Álvaro Gracia">
+  <meta name="keywords" content="música, tienda, pop, rock, r&b, Albaricuca Records">
+  <title>☆Albaricuca Records☆</title>
+  <link rel="icon" type="image/png" href="images/icono.png?v=2">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- Contenido de la página -->
+  <header class="site-header">
+    <img src="images/logo_icon.png" alt="MizuCuca Records" width="160" height="auto" class="site-logo site-logo--left">
+  </header>
+  <!-- Menú de navegación -->
+  <nav>
+  <div style="display: flex; align-items: center; gap: 2em;">
+  <a href="index.html">↯INICIO↯ </a>
+    <div style="position: relative; display: flex; align-items: center; gap: 0.5em;">
+      <button>Características ▼</button>
+      <div id="submenu-caracteristicas">
+        <a href="pop.html">Pop</a>
+        <a href="rock.html">Rock</a>
+        <a href="R&B.html">R&B</a>
+        <a href="hip_hop.html">Hip Hop</a>
+        <a href="Jazz.html">Jazz</a>
+        <a href="soundtrack.html">Soundtracks</a>
+      </div>
+      <a href="auth.html" class="nav-account">Cuenta</a>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; gap: 0.3em; margin-left: -2em;">
+  <div style="position:relative;display:inline-block;">
+    <a href="#" class="cesta" id="cestaLink">Cesta</a>
+  <div id="cestaMsg" style="display:none; position:absolute; left:-340px; top:2.2em; background:#4d7bb0; color:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.15); min-width: 180px; z-index:100; flex-direction: column; padding:10px 18px; font-family:Arial,sans-serif; font-size:1em; white-space:nowrap;">¿pero qué vas a comprar si no tienes dinero? 🤨</div>
+  </div>
+  <img src="images/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.webp" alt="Cesta" class="cesta-icon">
+  </div>
+</nav>
+<script>
+  // Mostrar/ocultar submenú de Características
+  const btn = document.querySelector('nav button');
+  const submenu = document.getElementById('submenu-caracteristicas');
+  let submenuTimeout;
+  btn.addEventListener('mouseenter', () => {
+    clearTimeout(submenuTimeout);
+    submenu.style.display = 'flex';
+  });
+  btn.addEventListener('mouseleave', () => {
+  submenuTimeout = setTimeout(() => submenu.style.display = 'none', 50);
+  });
+  submenu.addEventListener('mouseenter', () => {
+    clearTimeout(submenuTimeout);
+    submenu.style.display = 'flex';
+  });
+  submenu.addEventListener('mouseleave', () => {
+    submenuTimeout = setTimeout(() => submenu.style.display = 'none', 800);
+  });
+
+  // 'Próximamente' demo removed; submenu handlers preserved above
+
+  // Mostrar mensaje debajo de Cesta al pasar el cursor
+  const cestaLink = document.getElementById('cestaLink');
+  const cestaMsg = document.getElementById('cestaMsg');
+  cestaLink.addEventListener('mouseenter', () => {
+    cestaMsg.style.display = 'block';
+  });
+  cestaLink.addEventListener('mouseleave', () => {
+    cestaMsg.style.display = 'none';
+  });
+</script>
+  <div>
+  <!-- Logo para controlar el volumen arriba a la derecha -->
+  </div>
+  <div class="volumen-control">
+  <img src="images/25695.png" id="volumenLogo" alt="Volumen">
+  <input type="range" id="volumenSlider" min="0" max="1" step="0.01" value="0.5">
+  <div id="audioMsg" style="display:none; color:#fff; font-weight:bold; margin-top:10px; font-family:Georgia,serif; font-size:1.1em; letter-spacing:1px; text-shadow:1px 1px 2px #e389e3; background:linear-gradient(135deg,#d988e9 70%,#ffffff 100%); border:2px solid #e17ecc; border-radius:14px; box-shadow:0 4px 16px rgba(52,89,183,0.18); padding:12px 22px; max-width:340px; margin-left:auto; margin-right:auto;">Haz clic en cualquier parte para activar la música</div>
+  </div>
+  <audio id="miAudio" src="music/ssvid.app--FREE-JAZZ-TYPE-BEAT-SAXOPHONE-777-LOFI-BOOMBAP.mp3" loop></audio>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var audio = document.getElementById('miAudio');
+      var volumenSlider = document.getElementById('volumenSlider');
+      var audioMsg = document.getElementById('audioMsg');
+      audio.volume = parseFloat(volumenSlider.value);
+      audio.play().catch(function(){
+        audioMsg.style.display = 'block';
+        document.body.addEventListener('click', function activarAudio(){
+          audio.play();
+          audioMsg.style.display = 'none';
+          document.body.removeEventListener('click', activarAudio);
+        });
+      });
+      // Cambiar volumen con el slider
+      volumenSlider.addEventListener('input', function() {
+        audio.volume = parseFloat(this.value);
+      });
+      // Silenciar/desilenciar al hacer clic en el logo
+      var volumenLogo = document.getElementById('volumenLogo');
+      var muted = false;
+      volumenLogo.addEventListener('click', function() {
+        muted = !muted;
+        audio.muted = muted;
+        volumenLogo.style.opacity = muted ? '0.5' : '1';
+      });
+    });
+    // artistas destacados
+  </script>
+    <h2 class="destacados-titulo"> Jazz 🎷 </h2>
+    </script>
+     <h2 class="subtitulo-artistas">Artistas destacados</h2>
+    <div class="artistas-destacados">
+      <div class="artista">
+        <img src="images/Louis Armstrong.jpg" alt="Artista 1" class="artista-img">
+        <div class="artista-info">
+          <h3>Louis Armstrong</h3>
+          <p>Louis Armstrong, nacido en Nueva Orleans (EE. UU.) en 1901, fue un trompetista, cantante y compositor de jazz, uno de los músicos más influyentes del siglo XX. Destacó por su virtuosismo y carisma en clásicos como What a Wonderful World. Recibió premios Grammy, un Grammy Lifetime Achievement Award y fue incluido póstumamente en el Salón de la Fama del Jazz.
+</p>
+        </div>
+      </div>
+      <div class="artista">'
+  <img src="images/Ella Fitzgerald.jpg" alt="Artista 2" class="artista-img">
+        <div class="artista-info">
+          <h3>Ella Fitzgerald</h3>
+          <p>uyentes del hip hop. Conocido por sus letras sobre injusticia social y vida en los barrios, destacó con discos como All Eyez on Me y Me Against the World. Vendió más de 75 millones de discos y ganó American Music Awards, Soul Train Awards y fue incluido póstumamente en el Salón de la Fama del Rock and Roll.</p>
+        </div>
+       </div>
+    </div>
+</body>
+<footer>
+  <p>&copy; 2025 Albaricuca Records. Todos los derechos reservados. </p>
+</footer>
+</html>

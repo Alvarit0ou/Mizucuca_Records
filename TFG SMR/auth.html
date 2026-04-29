@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Autenticación - Albaricuca Records</title>
+  <link rel="icon" type="image/png" href="images/icono.png?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* pequeñas reglas específicas para esta página: badges de oferta a los lados */
+    .oferta{
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      /* responsive, larger badges but clamped */
+      width: clamp(160px, 22vw, 260px);
+      z-index: 30;
+      opacity: 0.98;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
+    }
+    /* separar un poco del borde */
+    .oferta-left{ left: 36px; }
+    .oferta-right{ right: 36px; }
+    @media (max-width: 900px){ .oferta{ display: none; } }
+  </style>
+</head>
+<body class="auth-page">
+  <a href="index.html" class="back-btn" aria-label="Volver al menú">Volver</a>
+  <header class="site-header">
+    <img src="images/logo web.jpeg" alt="MizuCuca Records" class="site-logo site-logo--center-large" width="320" height="auto">
+  </header>
+  <main class="auth-container">
+    <div class="auth-card">
+      <h2>Cuenta</h2>
+      <div class="tabs">
+        <button id="tab-login" class="tab active">Iniciar sesión</button>
+        <button id="tab-register" class="tab">Registrarse</button>
+      </div>
+
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="login-email">Correo</label>
+          <input id="login-email" type="email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-pass">Contraseña</label>
+          <input id="login-pass" type="password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+        <div id="login-msg" class="message"></div>
+      </form>
+
+      <form id="register-form" class="auth-form" style="display:none;">
+        <div class="form-group">
+          <label for="reg-name">Nombre</label>
+          <input id="reg-name" type="text" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Correo</label>
+          <input id="reg-email" type="email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-pass">Contraseña</label>
+          <input id="reg-pass" type="password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Crear cuenta</button>
+        </div>
+        <div id="reg-msg" class="message"></div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Imágenes de oferta laterales -->
+  <img src="images/oferta.jpeg" alt="Oferta" class="oferta oferta-left" aria-hidden="true">
+  <img src="images/oferta.jpeg" alt="Oferta" class="oferta oferta-right" aria-hidden="true">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+  
+  <!-- Configuración de Firebase -->
+  <script src="firebase-config.js"></script>
+  
+  <!-- App principal -->
+  <script src="app.js"></script>
+</body>
+</html>
