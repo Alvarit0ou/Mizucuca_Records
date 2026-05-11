@@ -194,7 +194,10 @@ h2 {
   height: 320px;
   object-fit: contain;
   border-radius: 12px;
-  background: transparent;
+
+  background: none !important;
+  background-color: transparent !important;
+  mix-blend-mode: multiply;
 }
 .album h3 {
   margin: 10px 0 5px;
