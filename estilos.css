@@ -493,17 +493,19 @@ footer p a {
   
   /* Navegación */
   nav {
-    padding: 0.5em 1em;
+    padding: 0.7em 1em;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: 1.2em;
   }
   
   nav a {
-    font-size: 0.95em;
+    font-size: 1em;
+    padding: 6px 8px;
   }
   
   nav button {
-    font-size: 0.95em;
+    font-size: 1em;
+    padding: 6px 8px;
   }
   
   /* Control de volumen */
@@ -528,29 +530,30 @@ footer p a {
   
   /* Grid de productos */
   .destacados {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
   
   .album {
-    padding: 10px;
+    padding: 12px;
   }
   
   .album img {
-    height: 220px;
+    height: 260px;
   }
   
   .album-nombre {
-    font-size: 0.9em;
+    font-size: 1em;
+    margin: 8px 0 4px;
   }
   
   .album-precio {
-    font-size: 1em;
+    font-size: 1.1em;
   }
   
   .btn-carrito {
-    padding: 6px 10px;
-    font-size: 0.85em;
+    padding: 8px 12px;
+    font-size: 0.9em;
   }
   
   /* Títulos */
@@ -643,26 +646,28 @@ footer p a {
   
   /* Navegación */
   nav {
-    padding: 0.4em 0.5em;
-    gap: 0.5em;
+    padding: 0.6em 0.5em;
+    gap: 0.8em;
   }
   
   nav a {
-    font-size: 0.85em;
-    margin: 0 2px;
+    font-size: 0.95em;
+    margin: 0 3px;
+    padding: 6px 6px;
   }
   
   nav button {
-    font-size: 0.85em;
+    font-size: 0.95em;
+    padding: 6px 6px;
   }
   
   .cesta {
-    font-size: 0.9em;
+    font-size: 1em;
   }
   
   .cesta-icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
   
   /* Control de volumen */
@@ -688,36 +693,36 @@ footer p a {
   
   /* Grid de productos */
   .destacados {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   
   .album {
-    padding: 8px;
+    padding: 10px;
   }
   
   .album img {
-    height: 180px;
+    height: 240px;
   }
   
   .album-nombre {
-    font-size: 0.8em;
-    margin: 5px 0 2px;
+    font-size: 0.95em;
+    margin: 6px 0 3px;
   }
   
   .album p {
-    font-size: 0.75em;
+    font-size: 0.8em;
   }
   
   .album-precio {
-    font-size: 0.9em;
-    margin: 4px 0;
+    font-size: 1em;
+    margin: 5px 0;
   }
   
   .btn-carrito {
-    padding: 5px 8px;
-    font-size: 0.75em;
-    margin-top: 5px;
+    padding: 7px 10px;
+    font-size: 0.8em;
+    margin-top: 6px;
   }
   
   /* Títulos */
@@ -910,27 +915,42 @@ footer p a {
    EXTRA PEQUEÑO (máximo 360px - muy pequeños)
    ============================================ */
 @media (max-width: 360px) {
-  /* Navegación más compacta */
+  /* Navegación más compacta pero legible */
   nav {
-    flex-direction: column;
-    padding: 0.3em 0.5em;
+    flex-direction: row;
+    padding: 0.5em 0.3em;
+    gap: 4px;
+    overflow-x: auto;
   }
   
   nav a {
-    font-size: 0.8em;
+    font-size: 0.88em;
+    padding: 5px 4px;
+    white-space: nowrap;
   }
   
   nav button {
-    font-size: 0.8em;
+    font-size: 0.88em;
+    padding: 5px 4px;
+    white-space: nowrap;
   }
   
   /* Grid aún más pequeño */
   .destacados {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .album {
+    padding: 8px;
   }
   
   .album img {
-    height: 150px;
+    height: 220px;
+  }
+  
+  .album-nombre {
+    font-size: 0.85em;
   }
   
   /* Menos espacio */
@@ -943,5 +963,6 @@ footer p a {
     font-size: 1em;
   }
 }
+
 
 
