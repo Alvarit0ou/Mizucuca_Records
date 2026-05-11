@@ -481,3 +481,467 @@ footer p a {
   .welcome-actions{ flex-direction:column; }
 }
 
+/* ============================================
+   RESPONSIVE DESIGN - MÓVILES (768px y menos)
+   ============================================ */
+@media (max-width: 768px) {
+  /* General */
+  body {
+    padding: 10px;
+    margin: 0;
+  }
+  
+  /* Navegación */
+  nav {
+    padding: 0.5em 1em;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  
+  nav a {
+    font-size: 0.95em;
+  }
+  
+  nav button {
+    font-size: 0.95em;
+  }
+  
+  /* Control de volumen */
+  .volumen-control {
+    top: 10px;
+    right: 10px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  #volumenSlider {
+    width: 60px;
+    margin-left: 5px;
+  }
+  
+  #audioMsg {
+    font-size: 0.9em !important;
+    max-width: 280px !important;
+  }
+  
+  /* Grid de productos */
+  .destacados {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  
+  .album {
+    padding: 10px;
+  }
+  
+  .album img {
+    height: 220px;
+  }
+  
+  .album-nombre {
+    font-size: 0.9em;
+  }
+  
+  .album-precio {
+    font-size: 1em;
+  }
+  
+  .btn-carrito {
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+  
+  /* Títulos */
+  .destacados-titulo,
+  .video-titulo,
+  .ubicacion-titulo {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+  }
+  
+  /* Artistas */
+  .artistas-destacados {
+    gap: 1.5em;
+    margin: 1.5em 0;
+  }
+  
+  .artista {
+    max-width: 280px;
+    padding: 1em;
+  }
+  
+  .artista-img {
+    width: 260px;
+    height: 260px;
+  }
+  
+  /* Ubicación */
+  .ubicacion-content {
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .mapa-wrapper {
+    flex: 1 1 100%;
+  }
+  
+  .ubicacion-img {
+    width: 100%;
+  }
+  
+  .ubicacion-img img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .ubicacion ul {
+    font-size: 1em;
+    padding-left: 1em;
+  }
+  
+  .ubicacion p {
+    font-size: 1em;
+  }
+  
+  /* Video */
+  .video-wrapper {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .video-wrapper iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
+  /* Carrito */
+  #carrito-contenido {
+    overflow-x: auto;
+  }
+  
+  .carrito-item {
+    gap: 8px;
+  }
+  
+  .carrito-item button {
+    padding: 4px 8px;
+    font-size: 0.85em;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MÓVILES PEQUEÑOS (480px y menos)
+   ============================================ */
+@media (max-width: 480px) {
+  /* General */
+  body {
+    padding: 5px;
+  }
+  
+  /* Navegación */
+  nav {
+    padding: 0.4em 0.5em;
+    gap: 0.5em;
+  }
+  
+  nav a {
+    font-size: 0.85em;
+    margin: 0 2px;
+  }
+  
+  nav button {
+    font-size: 0.85em;
+  }
+  
+  .cesta {
+    font-size: 0.9em;
+  }
+  
+  .cesta-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Control de volumen */
+  .volumen-control {
+    top: 5px;
+    right: 5px;
+  }
+  
+  #volumenLogo {
+    width: 24px;
+    height: 24px;
+  }
+  
+  #volumenSlider {
+    width: 50px;
+  }
+  
+  #audioMsg {
+    font-size: 0.8em !important;
+    max-width: 220px !important;
+    padding: 8px 12px !important;
+  }
+  
+  /* Grid de productos */
+  .destacados {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  
+  .album {
+    padding: 8px;
+  }
+  
+  .album img {
+    height: 180px;
+  }
+  
+  .album-nombre {
+    font-size: 0.8em;
+    margin: 5px 0 2px;
+  }
+  
+  .album p {
+    font-size: 0.75em;
+  }
+  
+  .album-precio {
+    font-size: 0.9em;
+    margin: 4px 0;
+  }
+  
+  .btn-carrito {
+    padding: 5px 8px;
+    font-size: 0.75em;
+    margin-top: 5px;
+  }
+  
+  /* Títulos */
+  h2 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+  
+  .destacados-titulo,
+  .video-titulo,
+  .ubicacion-titulo {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+  }
+  
+  /* Artistas */
+  .subtitulo-artistas {
+    font-size: 1.5em;
+  }
+  
+  .artistas-destacados {
+    gap: 1em;
+    margin: 1em 0;
+  }
+  
+  .artista {
+    max-width: 100%;
+    padding: 0.8em;
+  }
+  
+  .artista-img {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .artista-info h3 {
+    font-size: 0.95em;
+  }
+  
+  .artista-info p {
+    font-size: 0.85em;
+  }
+  
+  /* Ubicación */
+  .ubicacion {
+    padding: 0;
+  }
+  
+  .ubicacion-content {
+    flex-direction: column;
+  }
+  
+  .mapa-wrapper iframe {
+    min-height: 280px;
+  }
+  
+  .ubicacion-img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .ubicacion ul,
+  .ubicacion p {
+    font-size: 0.9em;
+    margin: 8px 0;
+  }
+  
+  /* Formularios */
+  .auth-container {
+    padding: 0;
+  }
+  
+  .auth-card {
+    border-radius: 12px;
+  }
+  
+  .auth-form {
+    padding: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    font-size: 0.95em;
+    width: 100%;
+  }
+  
+  .tabs {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .tab {
+    font-size: 0.85em;
+    padding: 8px 12px;
+  }
+  
+  /* Video */
+  .video-contenedor {
+    padding: 10px 0;
+  }
+  
+  .video-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+  
+  /* Share bar (si existe) */
+  .share-bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .share-bar button,
+  .share-bar a {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 0.85em;
+  }
+  
+  #qrImg {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  /* Carrito página */
+  table {
+    font-size: 0.85em;
+  }
+  
+  .carrito-item {
+    padding: 8px;
+    gap: 6px;
+  }
+  
+  .carrito-item button {
+    padding: 3px 6px;
+    font-size: 0.75em;
+  }
+  
+  /* Pago */
+  #pago-form {
+    max-width: 100%;
+  }
+  
+  .pago-resumen {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  /* Back button */
+  .back-btn {
+    top: 8px;
+    left: 8px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+  }
+  
+  /* Login/Register */
+  .login-form,
+  .register-form {
+    padding: 15px;
+  }
+  
+  .logo-container {
+    margin-bottom: 15px;
+  }
+  
+  /* Ocultar elementos innecesarios en móvil */
+  .oferta {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   EXTRA PEQUEÑO (máximo 360px - muy pequeños)
+   ============================================ */
+@media (max-width: 360px) {
+  /* Navegación más compacta */
+  nav {
+    flex-direction: column;
+    padding: 0.3em 0.5em;
+  }
+  
+  nav a {
+    font-size: 0.8em;
+  }
+  
+  nav button {
+    font-size: 0.8em;
+  }
+  
+  /* Grid aún más pequeño */
+  .destacados {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .album img {
+    height: 150px;
+  }
+  
+  /* Menos espacio */
+  h2 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  .destacados-titulo {
+    font-size: 1em;
+  }
+}
+
+
