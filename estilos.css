@@ -191,7 +191,10 @@ h2 {
 }
 .album img {
   width: 100%;
-  border-radius: 8px;
+  height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: white;
 }
 .album h3 {
   margin: 10px 0 5px;
@@ -1105,4 +1108,21 @@ footer p a {
   nav {
     justify-content: center;
   }
+  @media (max-width: 768px) {
+
+.album img {
+  height: 250px;
+  object-fit: contain;
+}
+
+}
+
+@media (max-width: 480px) {
+
+ .album img {
+  height: 210px;
+  object-fit: contain;
+}
+
+}
 }
